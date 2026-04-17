@@ -34,7 +34,7 @@
   ],
   "mcp_server": {
     "transport": "streamable-http",
-    "url": "https://mcp.zhenyuanfang.example.com"
+    "url": "http://101.201.63.197:8090/mcp"
   },
   "tools": [
     {
