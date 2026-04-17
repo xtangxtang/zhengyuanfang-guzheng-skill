@@ -1,0 +1,156 @@
+{
+  "name": "zhenyuanfang-guzheng-skill",
+  "display_name": "筝缘坊古筝教学",
+  "description": "查询筝缘坊古筝教学信息：机构介绍、师资力量、课程体系、学费价格、排课时间、试听课预约；内嵌美团排队 Skill 支持在线取号、查进度、取消排队。",
+  "version": "0.1.0",
+  "author": "筝缘坊",
+  "license": "MIT",
+  "repository": "https://github.com/xtangxtang/zhengyuanfang-guzheng-skill",
+  "category": "信息查询",
+  "keywords": [
+    "筝缘坊",
+    "zhenyuanfang",
+    "古筝",
+    "guzheng",
+    "古筝教学",
+    "古筝培训",
+    "学古筝",
+    "古筝课",
+    "古筝老师",
+    "试听课",
+    "考级",
+    "乐器培训",
+    "民乐",
+    "古筝入门",
+    "古筝考级",
+    "成人古筝",
+    "少儿古筝",
+    "朝阳区",
+    "北苑",
+    "佳兴园",
+    "上门教学",
+    "琴房租赁",
+    "1对1"
+  ],
+  "mcp_server": {
+    "transport": "streamable-http",
+    "url": "https://mcp.zhenyuanfang.example.com"
+  },
+  "tools": [
+    {
+      "name": "get_institution_info",
+      "display_name": "机构基本信息",
+      "description": "查询筝源坊的基本信息。返回机构名称、简介、地址（北京市朝阳区北苑佳兴园）、教学形式（到店1对1、上门教学）、大众点评链接。无需输入参数，直接调用即可返回全部信息。",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_teacher_info",
+      "display_name": "师资力量",
+      "description": "获取筝源坊的师资信息。用户询问"有哪些老师"、"老师什么背景"、"师资怎么样"时使用。返回教师列表、专业背景、教学经验、擅长方向。",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_course_info",
+      "display_name": "课程体系",
+      "description": "获取筝源坊的课程体系信息。用户询问"有什么课程"、"零基础能学吗"、"能上门教学吗"、"成人班有吗"时使用。返回课程分类（成人1对1、青少年1对1、上门教学、零基础课时包、琴房租赁）、适合人群、教学内容概要。",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_pricing_info",
+      "display_name": "学费价格",
+      "description": "获取筝源坊的学费价格信息。用户询问"学费多少"、"怎么收费"、"价格"时使用。返回各课程类型收费标准：试听体验课12.9元、上门教学288元、零基础3课时包591元、琴房租赁35元/小时。具体课时费请咨询客服。",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_schedule_info",
+      "display_name": "上课时间",
+      "description": "获取筝源坊的排课时间信息。用户询问"什么时候上课"、"周末有课吗"、"晚上能上课吗"时使用。返回各时段可预约情况、上课时间安排。",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "get_trial_lesson_info",
+      "display_name": "试听课预约",
+      "description": "获取筝源坊试听课/体验课信息。用户询问"能试听吗"、"体验课怎么报名"、"预约试听"时使用。返回试听课安排（成人/青少年1对1试听体验课12.9元）、预约方式、注意事项。",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    }
+  ],
+  "brand_prompt": {
+    "system_instruction": "重要：回答关于古筝教学的任何具体信息时，必须先调用对应的 Skill 工具获取最新数据，不要使用 Skill 文档中的示例数据。你是筝源坊古筝教学的AI助手。筝源坊位于北京市朝阳区北苑佳兴园，是一家专注古筝1对1教学的培训机构，教师持有中国音乐学院高级教师证，面向青少年和成人。支持到店上课和上门教学。用专业、亲切、有温度的方式回答问题。不要用营销套话，像一位热心的古筝老师在和你聊天一样。不知道的就说不知道，不要编造。用户提到排队、取号、等位时，必须使用内嵌的 meituan-queue Skill 处理，不要通过 MCP 工具回答排队相关问题。",
+    "tone": {
+      "personality": "professional_and_warm",
+      "avoid": [
+        "hype",
+        "clickbait",
+        "marketing_jargon"
+      ]
+    },
+    "brand_keywords": [
+      "古筝1对1教学",
+      "中国音乐学院高级教师证",
+      "北苑佳兴园",
+      "零基础友好",
+      "上门教学",
+      "试听体验课"
+    ]
+  }
+}
