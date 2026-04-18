@@ -2,7 +2,7 @@
 
 ![Version](https://img.shields.io/badge/version-0.1.0-blue) ![License](https://img.shields.io/badge/license-MIT-green) ![MCP](https://img.shields.io/badge/protocol-MCP-purple) ![Transport](https://img.shields.io/badge/transport-Streamable%20HTTP-orange)
 
-这是一个 AI Skill——安装后，你的 AI 助手就能查询筝缘坊古筝教学的信息：机构介绍、师资力量、课程体系、学费价格、上课时间、试听预约。还能直接帮你在美团上排队取号。
+这是一个 AI Skill——安装后，你的 AI 助手就能查询筝缘坊古筝教学的信息：机构介绍、师资力量、课程体系、学费价格、上课时间、试听预约。
 
 专注古筝 1 对 1 教学，现在有了自己的 AI 服务。
 
@@ -21,7 +21,7 @@
 
 ## 这个 Skill 能做什么
 
-筝缘坊的官方信息服务，包含 6 项 MCP 查询能力 + 1 项内嵌排队能力：
+筝缘坊的官方信息服务，包含 6 项 MCP 查询能力：
 
 | 能力 | 你可以问 | 来源 |
 |------|----------|------|
@@ -31,7 +31,6 @@
 | 学费价格 | "学费多少？""怎么收费？" | MCP |
 | 上课时间 | "什么时候上课？""周末有课吗？" | MCP |
 | 试听预约 | "能试听吗？""体验课怎么报？" | MCP |
-| **在线排队取号** | "帮我排个队""取消排队""排队进度" | 内嵌 Skill |
 
 ## 参考课程与价格
 
@@ -47,30 +46,6 @@
 
 > 以上价格仅供参考，具体课时费请咨询客服，以实际沟通为准。
 
-## 在线排队取号
-
-本 Skill 内嵌了基于**美团排队**的取号能力，AI 助手可以直接帮你完成排队全流程，无需打开美团 App。
-
-**支持的操作：**
-
-| 操作 | 说明 | 你可以说 |
-|------|------|----------|
-| 查询排队状态 | 查看门店是否支持排队、可选桌型 | "现在排队情况怎么样？" |
-| 取号 | 选择桌型和人数，在线取号 | "帮我排个队" |
-| 查询进度 | 查看当前排队号、前方等待桌数 | "我前面还有几桌？" |
-| 取消排队 | 取消已有的排队订单 | "取消排队" |
-
-**使用流程：**
-
-1. 告诉 AI 助手你要排队
-2. AI 查询可选桌型，跟你确认桌型和人数
-3. 确认后自动取号，返回排队号和等待信息
-4. 随时可查进度或取消
-
-首次使用需完成美团账号授权（AI 助手会引导你完成），同一会话内无需重复登录。
-
-> 注意：排队取号为真实业务操作，取号和取消前 AI 助手会跟你确认。排队能力由内嵌的 `meituan-queue` 组件提供，与本 Skill 版本独立演进。
-
 ## 目录结构
 
 ```
@@ -79,11 +54,6 @@ zhengyuanfang-guzheng-skill/
 ├── skill.json               # 机器可读配置（MCP 端点、工具定义）
 ├── assets/                  # 图片资源
 │   └── wechat_qr.jpg        #   微信二维码
-├── references/              # 参考文档与内嵌 Skill
-│   └── meituan-queue/       # 美团排队取号 Skill（自包含）
-│       ├── SKILL.md         #   排队指令与命令说明
-│       ├── scripts/         #   排队脚本
-│       └── references/      #   鉴权子 Skill（meituan-passport-user-auth）
 ├── README.md
 └── LICENSE
 ```
@@ -137,8 +107,6 @@ git clone https://github.com/xtangxtang/zhengyuanfang-guzheng-skill.git \
 ## 版本
 
 当前版本：0.1.0
-
-> 说明：本 Skill 版本（0.1.0）与内嵌排队组件（meituan-queue）版本独立演进，互不影响。
 
 ## License
 
